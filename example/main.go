@@ -4,7 +4,7 @@ import (
 	"github.com/google/uuid"
 	"time"
 
-	logger "github.com/imkiptoo/go-logger"
+	logger "github.com/imkiptoo/logger"
 )
 
 func main() {

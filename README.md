@@ -25,7 +25,7 @@ go get -u github.com/yourusername/logger
 Import the package in your Go project:
 
 ```go
-import "github.com/imkiptoo/go-logger"
+import "github.com/imkiptoo/logger"
 ```
 
 Create a new logger instance:

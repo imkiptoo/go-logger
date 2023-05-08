@@ -1,4 +1,4 @@
-module github.com/imkiptoo/go-logger
+module github.com/imkiptoo/logger
 
 go 1.20
 
