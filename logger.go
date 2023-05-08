@@ -1,4 +1,4 @@
-package logger_lab
+package logger
 
 import (
 	"compress/gzip"

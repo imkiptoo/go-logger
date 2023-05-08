@@ -4,11 +4,11 @@ import (
 	"github.com/google/uuid"
 	"time"
 
-	"logger/logger"
+	logger "github.com/imkiptoo/go-logger"
 )
 
 func main() {
-	log, err := logger.New("dairy-rms-api", "logs", "database", "config.yaml")
+	log, err := logger.New("example", "logs", "database", "config.yaml")
 	if err != nil {
 		panic(err)
 	}
