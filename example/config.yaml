@@ -1,5 +1,0 @@
-level: debug
-frequency: hourly
-max-size: 16kb
-console: true
-compress: true

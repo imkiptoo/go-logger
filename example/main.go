@@ -4,11 +4,17 @@ import (
 	"github.com/google/uuid"
 	"time"
 
-	logger "github.com/imkiptoo/logger"
+	"github.com/imkiptoo/logger"
 )
 
 func main() {
-	log, err := logger.New("example", "logs", "database", "config.yaml")
+	log, err := logger.New("example", "logs", "database", logger.Config{
+		Level:     "debug",
+		Frequency: "hourly",
+		MaxSize:   "16kb",
+		Console:   true,
+		Compress:  true,
+	})
 	if err != nil {
 		panic(err)
 	}

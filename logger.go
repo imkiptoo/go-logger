@@ -4,7 +4,6 @@ import (
 	"compress/gzip"
 	"fmt"
 	"github.com/fatih/color"
-	"gopkg.in/yaml.v3"
 	"io"
 	"log"
 	"os"
@@ -19,11 +18,11 @@ import (
 )
 
 type Config struct {
-	Level     string `yaml:"level"`
-	Frequency string `yaml:"frequency"`
-	Console   bool   `yaml:"console"`
-	MaxSize   string `yaml:"max-size"`
-	Compress  bool   `yaml:"compress"`
+	Level     string
+	Frequency string
+	Console   bool
+	MaxSize   string
+	Compress  bool
 }
 
 type Logger struct {
@@ -178,20 +177,11 @@ func (fw *FileWriter) Close() error {
 	return fw.file.Close()
 }
 
-func New(name, category, path, configFile string) (*Logger, error) {
-	var config Config
-	yamlFile, err := os.ReadFile(configFile)
-	if err != nil {
-		return nil, err
-	}
-	err = yaml.Unmarshal(yamlFile, &config)
-	if err != nil {
-		return nil, err
-	}
-	return newLogger(name, category, path, &config), nil
+func New(name, path, category string, config Config) (*Logger, error) {
+	return newLogger(name, path, category, &config), nil
 }
 
-func newLogger(name, category, path string, config *Config) *Logger {
+func newLogger(name, path, category string, config *Config) *Logger {
 	level, ok := levelMapping[config.Level]
 	if !ok {
 		level = INFO
